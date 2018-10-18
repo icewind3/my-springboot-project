@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- Consumer application names, used to calculate dependencies,not matching conditions, do not be the same as the provider -->
+    <dubbo:application name="consumer-of-helloworld-app"  />
+
+    <!-- Using the multicast broadcast registry to discovery the exposed  services -->
+    <dubbo:registry protocol="zookeeper" address="192.168.175.136:2181" />
+
+    <!-- Generate a remote service proxy that can be used as demoService as local bean -->
+    <!--<dubbo:reference id="demoService" interface="org.icewind.demovice.DemoService" />-->
+    <dubbo:reference id="demoService" check="false" interface="org.icewind.demo.service.DemoService"/>
+</beans>

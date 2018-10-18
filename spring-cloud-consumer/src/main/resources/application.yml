@@ -1,0 +1,11 @@
+server:
+  port: 8764
+
+spring:
+  application:
+    name: spring-cloud-consumer
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.175.136:8761/eureka/

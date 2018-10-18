@@ -1,0 +1,19 @@
+
+server:
+    port: 8001
+#    context-path: /ui
+
+auth-server: http://localhost:8889
+
+security:
+  oauth2:
+    client:
+      clientId: client
+      clientSecret: 123456
+      accessTokenUri: ${auth-server}/oauth/token
+      userAuthorizationUri: ${auth-server}/oauth/authorize
+      grant-type: authorization_code
+    resource:
+      tokenInfoUri: ${auth-server}/oauth/check_token
+      userInfoUri: ${auth-server}/user/me
+      preferTokenInfo: true
